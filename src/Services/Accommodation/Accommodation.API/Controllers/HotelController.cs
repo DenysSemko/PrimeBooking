@@ -15,15 +15,13 @@ public class HotelController(IActionResultCreator actionResultCreator, IMediator
     /// Command to create a new Hotel.
     /// </param>
     /// <returns>
-    /// Returns ActionResult with EventStoreResponse.
+    /// Returns ActionResult.
     /// </returns>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status202Accepted)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateHotel([FromBody] CreateHotelCommand command)
     {
-        // Result<Hotel> hotel = Hotel.Create(new HotelId(Guid.NewGuid()), command.Name, command.Capacity, ContactInformation.Create(command.Phone, command.Email, null).Value, command.Facilities, command.Stars);
-        // Result<AppendEventsResult> result = await eventStoreRepository.AppendEventsAsync(hotel.Value!, 0);
         // return actionResultCreator.GetResponse(result, default);
 
         return Accepted();
